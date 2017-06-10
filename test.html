@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算器</title>
+    <style>
+        body{
+            background: #eee;
+        }
+        input[type="text"]{
+           height:22px;
+           width:200px;
+        }
+        input[type="button"]{
+            width:110px;
+            height:30px;
+        }
+        #calculator{
+            width:500px;
+            margin:100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<form action="/search" method="post">
+        <input type="text" placeholder="用户名" name="" value="" required>
+        <input type="password" placeholder="密码">
+        <button type="reset">重置</button>   
+        <button>登录</button>
+    </form>
+    <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="number" name="a" value="10">+
+        <input type="number" name="b" value="20">=
+        <output name="result">30</output>
+    </form>
+    <form oninput="result.value=Math.pow(a.value,b.value)">
+        <input type="number" name="a" value="2">
+        <input type="number" name="b" value="3">=
+        <output name="result">8</output>
+    </form>-->
+    <div id="calculator">
+        <p>
+            <input type="text" class="formInput" value="1">
+            <span class="sign">+</span>
+            <input type="text" class="laterInput" value="1">
+            <span>=</span>
+            <span class="resultOutput">2</span>
+        </p>
+        <p>
+            <input type="button" value="+" onclick="addHandler()">
+            <input type="button" value="-" onclick="subtractHandler()">
+            <input type="button" value="×" onclick="multiplyHandler()">
+            <input type="button" value="÷" onclick="divideHandler()">
+        </p>
+    </div>
+    <script>
+        var calculator=document.querySelector("#calculator");
+        var formInput=calculator.querySelector(".formInput");
+        var laterInput=calculator.querySelector(".laterInput");
+        var sign=calculator.querySelector(".sign");
+        var resultOutput=calculator.querySelector(".resultOutput");
+        //加
+        function addHandler(){
+            sign.innerHTML="+";
+            resultOutput.innerHTML = +formInput.value + +laterInput.value;//两个字符串相加会直接拼接，所以字符串前面加一元运算符表示运算
+        }
+        //减
+        function subtractHandler(){
+            sign.innerHTML="-";
+            resultOutput.innerHTML = formInput.value - laterInput.value;
+        }
+        //乘
+        function multiplyHandler(){
+            sign.innerHTML="×";
+            resultOutput.innerHTML = formInput.value * laterInput.value;
+        }
+        //除
+        function divideHandler(){
+            sign.innerHTML="÷";
+            resultOutput.innerHTML = formInput.value / laterInput.value;
+        }
+    </script>
+</body>
+
+</html>
